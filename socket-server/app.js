@@ -44,8 +44,8 @@ var server = app.listen(4000, () => {
 });
 
 var io = socket(server);
-io.on('connection', () => {
-  console.log('made socket connection');
+io.on('connection', (socket) => {
+  console.log('made socket connection', socket.id);
 });
 
 module.exports = app;
