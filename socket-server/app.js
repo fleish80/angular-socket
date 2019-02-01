@@ -46,6 +46,11 @@ var server = app.listen(4000, () => {
 var io = socket(server);
 io.on('connection', (socket) => {
   console.log('made socket connection', socket.id);
+
+  socket.on('chat', (data) => {
+    console.log('data', data);
+    io.sockets.emit('chat', data);
+  })
 });
 
 module.exports = app;
