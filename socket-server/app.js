@@ -50,7 +50,11 @@ io.on('connection', (socket) => {
   socket.on('chat', (data) => {
     console.log('data', data);
     io.sockets.emit('chat', data);
-  })
+  });
+
+  socket.on('typing', (data) => {
+      socket.broadcast.emit('typing', data);
+  });
 });
 
 module.exports = app;
