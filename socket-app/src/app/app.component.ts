@@ -10,15 +10,16 @@ import { Data } from './data';
 export class AppComponent {
 
   title = 'socket-app';
+  data: Data = {};
 
   constructor(private socketService: SocketService) {
 
 
-    emitChat() {
-      const data: Data = {
+    // emitChat() {
+    //   const data: Data = {
 
-      }
-    }
+    //   }
+    // }
 
   }
 }
