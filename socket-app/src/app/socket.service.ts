@@ -24,7 +24,7 @@ export class SocketService {
     return this.socket.fromEvent<Data>('chat');
   }
 
-  onTyping(handle): Observable<string> {
+  onTyping(): Observable<string> {
     return this.socket.fromEvent<string>('typing');
   }
 }

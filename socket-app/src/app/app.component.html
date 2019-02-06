@@ -1,11 +1,20 @@
 <div id="mario-chat">
   <div id="chat-window">
-    <div id="output"></div>
-    <div id="feedback"></div>
+    <div id="output">
+      <p *ngFor="let output of outputs">
+        <strong>
+        {{output.handle}}
+        </strong>
+        {{output.message}}
+    </p>
+    </div>
+    <div id="feedback">
+      <p>
+        <em>{{typing$ | async}} is typing a message...</em>
+    </p>
+    </div>
   </div>
   <input [(ngModel)]='data.handle' id="handle" type="text" placeholder="Handle" />
-  <input [(ngModel)]='data.message' id="message" type="text" placeholder="Message" />
-  <button id="send" type="button">Send</button>
+  <input [(ngModel)]='data.message' id="message" type="text" placeholder="Message" (keypress)="emitTyping()"/>
+  <button id="send" type="button" (click)="emitChat()">Send</button>
 </div>
-
-{{data | json}}
